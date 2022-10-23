@@ -25,7 +25,8 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew app:bundleDebug
     - name: Upload Artifact
+      run:  ls ${{ github.workspace }}
       uses: actions/upload-artifact@master
       with:
         name: app-debug.apk
-        path: app/build/outputs/apk/debug/app-debug.apk
+        path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
