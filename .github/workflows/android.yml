@@ -23,7 +23,7 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew app:bundleDebug
+      run: ./gradlew app:installDebug
     - name: DEBUG Listing the github workspace 
       run:  ls ./app/build/outputs/bundle/debug && cp ./app/build/outputs/apk/debug/app-debug.apk .  
     - name: Upload Artifact      
