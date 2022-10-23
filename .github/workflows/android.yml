@@ -24,7 +24,7 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew app:bundleDebug
-    - name: DEBUG: Listing the github workspace 
+    - name: DEBUG Listing the github workspace 
       run:  ls ${{ github.workspace }}
     - name: Upload Artifact      
       uses: actions/upload-artifact@master
