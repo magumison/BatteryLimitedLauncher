@@ -25,7 +25,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew app:bundleDebug
     - name: DEBUG Listing the github workspace 
-      run:  ls ${{ github.workspace }}
+      run:  ls 
     - name: Upload Artifact      
       uses: actions/upload-artifact@master
       with:
