@@ -20,14 +20,17 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%s')"
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew app:packageDebug
-    - name: DEBUG Listing the github workspace 
-      run:  ls ./app/build/outputs/apk/debug && cp ./app/build/outputs/apk/debug/app-debug.apk .  
+    - name: Copy debug apk for the artifacts 
+      run:  cp ./app/build/outputs/apk/debug/app-debug.apk app-debug-${{ steps.date.outputs.date }}.apk
     - name: Upload Artifact      
       uses: actions/upload-artifact@master
       with:
         name: app-debug.apk
-        path: app-debug.apk
+        path: app-debug-${{ steps.date.outputs.date }}.apk
